@@ -5,7 +5,12 @@ print "Enter Number to convert> "
 number = gets.chomp.to_i
 
 if (number > 0) && (number < 4000)
-  #add code to convert number to roman numeral
+  roman_numerals.keys.sort{ |a,b| b <=> a }.each do |n|
+    while number >= n
+      number = number -n
+      print roman_numerals[n]
+    end
+  end
 else
   puts "Please enter a number between 1 and 3999."
 end
